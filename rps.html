@@ -9,10 +9,40 @@
 <body>
     <script type="text/javascript">
         function computerPlay() {
-            return Math.random()
+            let num = Math.random()
+            let choice
+
+            (num < 0.33) ? choice = 'rock': (num < 0.67) ? choice = 'scissors' :
+                choice = 'paper'
+
+            return choice
         }
 
-        alert(computerPlay())
+        playerSelection = prompt("Rock, Papers or Scissors?")
+        computerSelection = computerPlay()
+
+        function playGame(p, c) {
+                let pl = p.toLowerCase()
+                let cl = c.toLowerCase()
+                let result = ''
+
+                if (pl == 'rock' && cl == 'paper' ||
+                pl == 'paper' && cl == 'scissors' ||
+                pl == 'scissors' && cl == 'rock' ) {
+                    result = "Computer' choice: " + cl + " you lose!"
+                } else if (pl == 'rock' && cl == 'scissors' ||
+                pl == 'paper' && cl == 'rock' ||
+                pl == 'scissors' && cl == 'paper' ) {
+                    result = "Computer' choice: " + cl + " you win!"
+                } else if (pl == cl) {
+                    result = "Computer' choice: " + cl + " it's a tie!"
+                } else {
+                    result = 'wrong choice!'
+                }
+                return result
+        }
+
+        // alert(playGame(playerSelection, computerSelection))
     </script>
 </body>
 
