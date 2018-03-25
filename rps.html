@@ -55,23 +55,23 @@
 
                 if (result == 0) {
                     comp_sc++
-                    alert("Computer: " + computerSelection + ". You lose this round!")
+                    console.log("Computer: " + computerSelection + ". You lose this round!")
                 } else if (result == 1) {
                     my_sc++
-                    alert("Computer: " + computerSelection + ". You win this round!")
+                    console.log("Computer: " + computerSelection + ". You win this round!")
                 } else if (result == 2) {
-                    alert("Computer: " + computerSelection + ". It's a tie!")
+                    console.log("Computer: " + computerSelection + ". It's a tie!")
                 } else {
-                    alert("Wrong choice!")
+                    console.log("Wrong choice!")
                 }
             }
             // alert('Computer score: ' + comp_sc + ". Your score: " + my_sc)
             if (my_sc < comp_sc) {
-                alert("Computer: " + comp_sc + " You: " + my_sc + '. You lose!')
+                console.log("Computer: " + comp_sc + " You: " + my_sc + '. You lose!')
             } else if (my_sc > comp_sc) {
-                alert("Computer: " + comp_sc + " You: " + my_sc + '. You win!')
+                console.log("Computer: " + comp_sc + " You: " + my_sc + '. You win!')
             } else {
-                alert("Computer: " + comp_sc + " You: " + my_sc + " it's a tie o_0")
+                console.log("Computer: " + comp_sc + " You: " + my_sc + " it's a tie o_0")
             }
         }
 
