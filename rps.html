@@ -18,31 +18,67 @@
             return choice
         }
 
-        playerSelection = prompt("Rock, Papers or Scissors?")
-        computerSelection = computerPlay()
+        // playerSelection = prompt("Rock, Papers or Scissors?")
+        // computerSelection = computerPlay()
 
-        function playGame(p, c) {
-                let pl = p.toLowerCase()
-                let cl = c.toLowerCase()
-                let result = ''
+        function playRound(p, c) {
+            let pl = p.toLowerCase()
+            let cl = c.toLowerCase()
+            let result
 
-                if (pl == 'rock' && cl == 'paper' ||
+            if (pl == 'rock' && cl == 'paper' ||
                 pl == 'paper' && cl == 'scissors' ||
-                pl == 'scissors' && cl == 'rock' ) {
-                    result = "Computer' choice: " + cl + " you lose!"
-                } else if (pl == 'rock' && cl == 'scissors' ||
+                pl == 'scissors' && cl == 'rock') {
+                result = 0
+            } else if (pl == 'rock' && cl == 'scissors' ||
                 pl == 'paper' && cl == 'rock' ||
-                pl == 'scissors' && cl == 'paper' ) {
-                    result = "Computer' choice: " + cl + " you win!"
-                } else if (pl == cl) {
-                    result = "Computer' choice: " + cl + " it's a tie!"
-                } else {
-                    result = 'wrong choice!'
-                }
-                return result
+                pl == 'scissors' && cl == 'paper') {
+                result = 1
+            } else if (pl == cl) {
+                result = 2
+            } else {
+                result = 3
+            }
+            return result
         }
 
-        // alert(playGame(playerSelection, computerSelection))
+        function game() {
+
+            let comp_sc = 0
+            let my_sc = 0
+
+            for (let i = 0; i < 5; i++) {
+
+                playerSelection = prompt("Rock, Papers or Scissors?")
+                computerSelection = computerPlay()
+                result = playRound(playerSelection, computerSelection)
+
+                if (result == 0) {
+                    comp_sc++
+                    alert("Computer: " + computerSelection + ". You lose this round!")
+                } else if (result == 1) {
+                    my_sc++
+                    alert("Computer: " + computerSelection + ". You win this round!")
+                } else if (result == 2) {
+                    alert("Computer: " + computerSelection + ". It's a tie!")
+                } else {
+                    alert("Wrong choice!")
+                }
+            }
+            // alert('Computer score: ' + comp_sc + ". Your score: " + my_sc)
+            if (my_sc < comp_sc) {
+                alert('You lose!')
+            } else if((my_sc > comp_sc)) {
+                alert('You win!')
+            } else {
+                alert("it's a tie o_0")
+            }
+        }
+
+
+        game();
+
+        // alert(playRound(playerSelection, computerSelection))
     </script>
 </body>
 
